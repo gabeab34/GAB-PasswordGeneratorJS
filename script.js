@@ -14,31 +14,53 @@ generateBtn.addEventListener("click", writePassword);
 
 // Write password to the #password input
 function writePassword() {
+  
   var passwordselection = "";
 
-  var pwlength = window.prompt("Please input a number between 8 and 128")
+  var pwlength = prompt("Please input a number between 8 and 128")
+  if (!pwlength) {
+    return writePassword + alert("You must enter a number")
+  };
+  if (pwlength < 8 || pwlength > 128) {
+    pwlength = prompt("Choose a number between 8 and 128")
+  } if (pwlength < 8 || pwlength > 128) {
+    return writePassword + alert("Please follow instructions") 
+  };
+  
 
-  var lcase = window.confirm("Include lowercase?")
+  var lcase = confirm("Include lowercase? Ok for yes, cancel for no")
   if (lcase) {
     passwordselection += selections.lowercase;
   };
 
-  var ucase = window.confirm("Include uppercase?")
+  var ucase = confirm("Include uppercase? Ok for yes, cancel for no")
   if (ucase) {
     passwordselection += selections.uppercase;
   };
 
-  var numbers = window.confirm("Include numbers?")
+  var numbers = confirm("Include numbers? Ok for yes, cancel for no")
   if (numbers) {
     passwordselection += selections.number;
 
   };
 
-  var symbols = window.confirm("Include special characters?")
+  var symbols = confirm("Include special characters? Ok for yes, cancel for no")
   if (symbols) {
     passwordselection += selections.symbol;
 
   };
+
+  // if (lcase = false) + (ucase = false) + (numbers = false) + (symbols = false); {
+  // return writePassword + alert("You must choose at least one character type")
+  // };
+
+  // if (lcase, ucase, numbers, symbols = false); {
+  // return writePassword + alert("You must choose at least one character type")
+  // };
+
+  // if (lcase && ucase && numbers && symbols == false); {
+  // return writePassword + alert("You must choose at least one character type")
+  // };
 
   var password = "";
   for (let i = 0; i < pwlength; i++) {
@@ -46,6 +68,7 @@ function writePassword() {
   
   }
   // alert(password)
+ 
   document.querySelector("#password").textContent = password;
 
 }
