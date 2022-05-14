@@ -27,7 +27,6 @@ function writePassword() {
     return writePassword + alert("Please follow instructions") 
   };
   
-
   var lcase = confirm("Include lowercase? Ok for yes, cancel for no")
   if (lcase) {
     passwordselection += selections.lowercase;
@@ -41,31 +40,16 @@ function writePassword() {
   var numbers = confirm("Include numbers? Ok for yes, cancel for no")
   if (numbers) {
     passwordselection += selections.number;
-
   };
 
   var symbols = confirm("Include special characters? Ok for yes, cancel for no")
   if (symbols) {
     passwordselection += selections.symbol;
-
   };
 
-  // if (lcase === "false") + (ucase === "false") + (numbers === "false") + (symbols === "false"); {
-  // return writePassword + alert("You must choose at least one character type")
-  // };
-
-  // if (lcase, ucase, numbers, symbols === false); {
-  // return writePassword + alert("You must choose at least one character type")
-  // };
-
-  // if (lcase && ucase && numbers && symbols === "false"); {
-  // return writePassword + alert("You must choose at least one character type")
-  // };
-
-  // if (lcase && ucase && numbers && symbols) === (false); {
-  // return writePassword + alert("You must choose at least one character type")
-  // };
-
+  if (!lcase && !ucase && !numbers && !symbols) {
+  return writePassword + alert("You must choose at least one character type")
+  };
 
   var password = "";
   for (let i = 0; i < pwlength; i++) {
