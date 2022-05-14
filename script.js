@@ -50,17 +50,22 @@ function writePassword() {
 
   };
 
-  // if (lcase = false) + (ucase = false) + (numbers = false) + (symbols = false); {
+  // if (lcase === "false") + (ucase === "false") + (numbers === "false") + (symbols === "false"); {
   // return writePassword + alert("You must choose at least one character type")
   // };
 
-  // if (lcase, ucase, numbers, symbols = false); {
+  // if (lcase, ucase, numbers, symbols === false); {
   // return writePassword + alert("You must choose at least one character type")
   // };
 
-  // if (lcase && ucase && numbers && symbols == false); {
+  // if (lcase && ucase && numbers && symbols === "false"); {
   // return writePassword + alert("You must choose at least one character type")
   // };
+
+  // if (lcase && ucase && numbers && symbols) === (false); {
+  // return writePassword + alert("You must choose at least one character type")
+  // };
+
 
   var password = "";
   for (let i = 0; i < pwlength; i++) {
