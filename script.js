@@ -10,6 +10,8 @@ const selections = {
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+generateBtn.addEventListener("click", writePassword);
+
 // Write password to the #password input
 function writePassword() {
   var passwordselection = "";
@@ -26,15 +28,15 @@ function writePassword() {
     passwordselection += selections.uppercase;
   };
 
-  var symbols = window.confirm("Include symbols?")
-  if (symbols) {
-    passwordselection += selections.symbol;
-
-  };
-
   var numbers = window.confirm("Include numbers?")
   if (numbers) {
     passwordselection += selections.number;
+
+  };
+
+  var symbols = window.confirm("Include special characters?")
+  if (symbols) {
+    passwordselection += selections.symbol;
 
   };
 
@@ -43,14 +45,10 @@ function writePassword() {
     password += passwordselection[Math.floor(Math.random() * passwordselection.length)]
   
   }
-  alert(password)
-  
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-
-  // passwordText.value = password;
+  // alert(password)
+  document.querySelector("#password").textContent = password;
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
+
